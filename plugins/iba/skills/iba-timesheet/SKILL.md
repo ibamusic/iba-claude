@@ -16,10 +16,12 @@ The sheet is a record of effort, not a punch clock: round numbers, one plain lin
 3. **Gather evidence** for each day: local `git log` across the IBA repos (unpushed work), the work calendar and sent mail (Outlook connector), the personal calendar (Google Calendar connector), then IBA activity through this connector — `schedule_search` for rostered shows, `schedule_review_health`, `audit_recent`, `reconciliation_status`. Messaging sources may be added later; they only add evidence, never a new way of writing.
 4. **Propose blocks**: one per day per kind of work, 0.5 h steps, categories dev / ops / admin / show / docs / pto / other. Shows at their real times; a weekday with nothing to show is development by default; never pad past target.
 5. **Show the table and get a yes**, then one `timesheet_blocks_upsert` per period. Same keys on a re-run update in place; `timesheet_block_delete` removes one of yours.
-6. **Report** week totals before → after and what you could not see. Submit stays on the admin Timesheets page.
+6. **Report** week totals before → after and what you could not see.
+7. **Submit only when asked.** Filling is not submitting. When the owner says to submit an ended period, re-read `timesheet_period_get`, state the total hours, and on their yes call `timesheet_period_submit` with `acknowledged: true`. If the admin site did not answer, re-read `timesheet_periods_list` before any retry.
 
 ## Never
 
 - Touch a block without a key, or a submitted period.
 - Write before the proposal was approved.
+- Submit a period nobody asked you to submit.
 - Invent a show or pad a week past target.

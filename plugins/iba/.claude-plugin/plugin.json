@@ -1,7 +1,7 @@
 {
   "name": "iba",
   "displayName": "IBA Music",
-  "version": "1.0.128",
+  "version": "1.0.147",
   "description": "IBA Music operations: the IBA connector (mcp.ibamusic.com, sign in with your @ibamusic.com Microsoft account) plus the finance and operations playbooks — payroll and invoice checks, receipt reconciliation, schedules, rosters and Disney booking ingest.",
   "author": {
     "name": "IBA Music",
